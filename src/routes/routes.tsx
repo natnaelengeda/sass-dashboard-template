@@ -6,6 +6,9 @@ import Root from "./Root";
 // Pages
 import Home from "../pages/home";
 
+// Auth
+import Login from "@/pages/auth/login";
+
 const routes = createBrowserRouter([
   {
     path: "/",
@@ -14,6 +17,12 @@ const routes = createBrowserRouter([
       {
         path: "/",
         element: <Home />
+      },
+
+      // Auth
+      {
+        path: '/login',
+        element: <Login />
       }
     ]
   },
