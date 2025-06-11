@@ -5,6 +5,11 @@ import ReactDOMClient from 'react-dom/client';
 import routes from './routes/routes';
 import { RouterProvider } from 'react-router-dom';
 
+// State
+import { Provider } from 'react-redux';
+import { persistor, store } from "./store";
+import { PersistGate } from 'redux-persist/integration/react';
+
 // Styles
 import "./index.css";
 import "./styles/tailwind.css";
@@ -16,8 +21,15 @@ const root = ReactDOMClient.createRoot(container);
 
 function App() {
   return (
-    <RouterProvider
-      router={routes} />
+    <Provider
+      store={store}>
+      <PersistGate
+        loading={null}
+        persistor={persistor}>
+        <RouterProvider
+          router={routes} />
+      </PersistGate>
+    </Provider>
   );
 }
 
